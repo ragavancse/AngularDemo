@@ -9,22 +9,21 @@ import { Observable } from "rxjs/Observable";
         <ag-grid-ng2 style="width: 100%; margin-left: 10%" #agGrid class="ag-material"
                     rowHeight="50" rowWidth="100" [gridOptions]="myGridOptions">
             </ag-grid-ng2>
+      <table class="pure-table pure-table-bordered">
+      <tr>
+            <th>Name</th>
+            <th>Code1</th>
+                  <th>Code2</th>
 
-<table class="pure-table pure-table-bordered">
-   <tr>
-      <th>Name</th>
-      <th>Code1</th>
-            <th>Code2</th>
+      </tr>
+      
+      <tr *ngFor="let d of data1 | async">
+            <td>{{  d.name }}</td>
+            <td>{{ d.alpha2_code}}</td>
+                  <td>{{ d.alpha3_code}}</td>
 
-   </tr>
-   
-   <tr *ngFor="let d of data1 | async">
-      <td>{{  d.name }}</td>
-      <td>{{ d.alpha2_code}}</td>
-            <td>{{ d.alpha3_code}}</td>
-
-   </tr>
-</table>
+      </tr>
+      </table>
         `,
         providers:[CountryService]
 })
